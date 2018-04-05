@@ -30,4 +30,17 @@ public class Critter1 extends Critter {
         return false;
     }
 
-}
+	@Override
+	public CritterShape viewShape() {
+		return CritterShape.SQUARE;
+	}
+	@Override
+	public javafx.scene.paint.Color viewFillColor() {
+		return javafx.scene.paint.Color.YELLOWGREEN;
+	}
+	@Override
+	public javafx.scene.paint.Color viewOutlineColor() {
+		return javafx.scene.paint.Color.BLACK;
+	}
+
+} 

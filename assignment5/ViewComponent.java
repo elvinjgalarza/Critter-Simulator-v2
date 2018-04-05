@@ -7,6 +7,17 @@ public class ViewComponent {
 
     static int size = 10;
 
+
+    /**
+     * See FAQ Q6: What does scaling mean? Scaling of the window
+     * Scale the given Parameters to create an aesthetic board
+     * The size is inversely proportional to the given width (columns)
+     * and given height (rows)
+     */
+    public static void scaleParams(){
+        size = 5;
+    }
+
     /**
      * Creates the board.
      */
@@ -14,9 +25,9 @@ public class ViewComponent {
         for(int columns = 0; columns < Params.world_width; columns++){
             for(int rows = 0; rows < Params.world_height; rows++){
                 Shape board = new Rectangle(size, size);
-                board.setFill(Color.WHITE);
-                board.setStroke(Color.BLACK);
-                Main.play.add(board, columns, rows);
+                board.setFill(Color.BROWN);
+                board.setStroke(Color.WHITE);
+                Main.makeWindow.add(board, columns, rows);
             }
         }
     }
@@ -107,16 +118,16 @@ public class ViewComponent {
         Shape s = convertToShape(shape);
         if (color.equals(fill)) {
             s.setFill(fill);
-            if (outline.equals(Color.WHITE)) {
+            if (outline.equals(Color.BROWN)) {
                 s.setStroke(fill);
             }
             else {
                 s.setStroke(outline);
             }
         }
-        else if (color.equals(Color.WHITE)) {
+        else if (color.equals(Color.BROWN)) {
             s.setFill(fill);
-            if (outline.equals(Color.WHITE)) {
+            if (outline.equals(Color.BROWN)) {
                 s.setStroke(fill);
             }
             else {
@@ -125,18 +136,18 @@ public class ViewComponent {
         }
         else {
             s.setFill(color);
-            if (outline.equals(Color.WHITE)) {
+            if (outline.equals(Color.BROWN)) {
                 s.setStroke(color);
             }
             else {
                 s.setStroke(outline);
             }
         }
-        Main.modelGrid.add(s, x_coord, y_coord);
+        Main.makeWindow.add(s, x_coord, y_coord);
     }
 
     public static void displayBoard(){
-        Main.play.getChildren().clear();
+        Main.makeWindow.getChildren().clear();
         createBoard();
     }
 }

@@ -386,7 +386,7 @@ public abstract class Critter {
 			output_stats += (temp + s + ":" + critter_count.get(s));
 			temp = ", ";
 		}
-		Main.setOutputText(output_stats);
+		System.out.println();
 	}
 
 	/* the TestCritter class allows some critters to "cheat". If you want to
