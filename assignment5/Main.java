@@ -1,9 +1,7 @@
-package assignment5;
+package assignment5; // cannot be in default package
 
-public class Main {
-
-	public static void main(String[] args) {
-		// launch(args);
+	public static void main(String[] args){
+		//launch(args);
 	}
 
 }
