@@ -15,7 +15,77 @@ public class ViewComponent {
      * and given height (rows)
      */
     public static void scaleParams(){
-        size = 5;
+        if (Params.world_width <= 50) {
+            if (Params.world_height <= 25) {
+                size = 14;
+            }
+            else if (Params.world_height <= 50) {
+                size = 12;
+            }
+            else if (Params.world_height <= 75) {
+                size = 8;
+            }
+            else if (Params.world_height <= 100) {
+                size = 6;
+            }
+            else if (Params.world_height <= 125) {
+                size = 4;
+            }
+            else {
+                size = 3;
+            }
+        }
+        else if (Params.world_width <= 100) {
+            if (Params.world_height <= 50) {
+                size = 10;
+            }
+            else if (Params.world_height <= 75) {
+                size = 8;
+            }
+            else if (Params.world_height <= 100) {
+                size = 6;
+            }
+            else if (Params.world_height <= 125) {
+                size = 4;
+            }
+            else {
+                size = 2;
+            }
+        }
+        else if (Params.world_width <= 150) {
+            if (Params.world_height <= 50) {
+                size = 7;
+            }
+            else if (Params.world_height <= 75) {
+                size = 6;
+            }
+            else if (Params.world_height <= 100) {
+                size = 5;
+            }
+            else if (Params.world_height <= 125) {
+                size = 4;
+            }
+            else {
+                size = 3;
+            }
+        }
+        else if (Params.world_width <= 200) {
+            if (Params.world_height <= 50) {
+                size = 6;
+            }
+            else if (Params.world_height <= 100) {
+                size = 5;
+            }
+            else if (Params.world_height <= 125) {
+                size = 4;
+            }
+            else {
+                size = 3;
+            }
+        }
+        else {
+            size = 3;
+        }
     }
 
     /**

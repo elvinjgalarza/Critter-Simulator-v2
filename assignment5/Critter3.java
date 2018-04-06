@@ -1,4 +1,6 @@
-package assignment5;/* This Critter is named Troy. Troy likes to
+package assignment5;
+
+/* This Critter is named Troy. Troy likes to 
    live an uncomplicated life, so he only
    moves eastward.
    
@@ -36,13 +38,17 @@ public class Critter3 extends Critter {
         return true;
     }
     
+	public static void runStats(java.util.List<Critter> critter) {
+		System.out.println("There are " + critter.size() + " Troy's on the board.");
+	}
+	
 	@Override
 	public CritterShape viewShape() {
 		return CritterShape.DIAMOND;
 	}
 	@Override
 	public javafx.scene.paint.Color viewFillColor() {
-		return javafx.scene.paint.Color.DARKORANGE;
+		return javafx.scene.paint.Color.DARKRED;
 	}
 	@Override
 	public javafx.scene.paint.Color viewOutlineColor() {

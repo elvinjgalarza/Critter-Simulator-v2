@@ -1,4 +1,6 @@
-package assignment5;/* Abed is Troy's best friend. He likes
+package assignment5;
+
+/* Abed is Troy's best friend. He likes
    being independent, so he will move
    diagonally to the bottom left.
    
@@ -37,13 +39,17 @@ public class Critter4 extends Critter {
         return true;
     }
     
+	public static void runStats(java.util.List<Critter> critter) {
+		System.out.println("There are " + critter.size() + " Abed's on the board.");
+	}
+    
 	@Override
 	public CritterShape viewShape() {
 		return CritterShape.CIRCLE;
 	}
 	@Override
 	public javafx.scene.paint.Color viewFillColor() {
-		return javafx.scene.paint.Color.DARKGRAY;
+		return javafx.scene.paint.Color.PALEGOLDENROD;
 	}
 	@Override
 	public javafx.scene.paint.Color viewOutlineColor() {

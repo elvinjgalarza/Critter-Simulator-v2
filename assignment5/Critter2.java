@@ -1,4 +1,6 @@
-package assignment5;/* The Rick Critter's life has always been up.
+package assignment5;
+
+/* The Rick Critter's life has always been up.
    It only knows being up, and so it moves upward.
    It spits out tiny Ricks upwards. It's always
    looking to pick a fight; however, it does not
@@ -29,6 +31,10 @@ public class Critter2 extends Critter {
         return true;
     }
     
+	public static void runStats(java.util.List<Critter> critter) {
+		System.out.println("There are " + critter.size() + " Rick's on the board.");
+	}
+    
 	@Override
 	public CritterShape viewShape() {
 		return CritterShape.STAR;
@@ -39,7 +45,7 @@ public class Critter2 extends Critter {
 	}
 	@Override
 	public javafx.scene.paint.Color viewOutlineColor() {
-		return javafx.scene.paint.Color.WHITE;
+		return javafx.scene.paint.Color.BLACK;
 	}
 
 }

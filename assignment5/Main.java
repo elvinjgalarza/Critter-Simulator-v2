@@ -56,23 +56,24 @@ public class Main extends Application{
 		Stage critter_world = new Stage();
 		critter_world.setTitle("World of Critters");
 		ViewComponent.scaleParams();
-		Scene modelScene = new Scene(makeWindow, Params.world_width*(ViewComponent.size+1),
+		/* add 1 so that the border is adjacent to end of board */
+		Scene worldComplete = new Scene(makeWindow, Params.world_width*(ViewComponent.size+1),
 				Params.world_height*(ViewComponent.size+1));
-		critter_world.setScene(modelScene);
+		critter_world.setScene(worldComplete);
 		critter_world.show();
 	}
 	public void critterStatisticsWindow(){
-		Stage statsView = new Stage();
-		statsView.setTitle("Critter Statistics");
-		Scene statsViewScene = new Scene(statsWindow, 450, 400);
-		statsView.setScene(statsViewScene);
-		statsView.show();
+		Stage stats = new Stage();
+		stats.setTitle("Critter Statistics");
+		Scene statsComlete = new Scene(statsWindow, 600, 400);
+		stats.setScene(statsComlete);
+		stats.show();
 
 
 	}
 
 
-	/* Do the functionalities of each command */
+	/* Do the functionality of each valid command */
 	public void addCritterFunctionality(){
 		Label name = new Label("Choose Critter:");
 		window.add(name, 1, 4, 2, 1);
@@ -107,10 +108,10 @@ public class Main extends Application{
 		GridPane.setValignment(critButton, VPos.BOTTOM);
 		window.add(critButton, 15, 5);
 
-		final Text actiontarget = new Text();
-		window.add(actiontarget, 5, 6, 20, 1);
-		GridPane.setHalignment(actiontarget, HPos.CENTER);
-		GridPane.setValignment(actiontarget, VPos.BOTTOM);
+		final Text error_prompt0 = new Text();
+		window.add(error_prompt0, 5, 10, 20, 1);
+		GridPane.setHalignment(error_prompt0, HPos.CENTER);
+		GridPane.setValignment(error_prompt0, VPos.BOTTOM);
 		critButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -119,12 +120,12 @@ public class Main extends Application{
 					String number = numCritterText.getText();
 					String type = comboBox.getValue().toString();
 					if(!(numCritterText.getText().matches("^[0-9]+$"))){
-						actiontarget.setFill(Color.FIREBRICK);
-						actiontarget.setText("Insert valid number");
+						error_prompt0.setFill(Color.DARKRED);
+						error_prompt0.setText("Insert valid number");
 					}
 					else{
 						try{
-							actiontarget.setText("                   ");
+							error_prompt0.setText("                   ");
 							for(int i=0; i < Integer.parseInt(number); i+=1){
 								Critter.makeCritter(type);
 							}
@@ -136,8 +137,8 @@ public class Main extends Application{
 					}
 				}
 				else{
-					actiontarget.setFill(Color.FIREBRICK);
-					actiontarget.setText("Please select number and type of critters");
+					error_prompt0.setFill(Color.DARKRED);
+					error_prompt0.setText("Please type a valid number!");
 				}
 				comboBox.getSelectionModel().clearSelection();
 				numCritterText.clear();
@@ -146,9 +147,9 @@ public class Main extends Application{
 	}
 	public void addDisplayWorldFunctionality(){
 		Button displayButton = new Button("Display World");
-		GridPane.setHalignment(displayButton, HPos.RIGHT);
+		GridPane.setHalignment(displayButton, HPos.CENTER);
 		GridPane.setValignment(displayButton, VPos.BOTTOM);
-		window.add(displayButton, 6, 23, 1, 1);
+		window.add(displayButton, 14, 14, 1, 1);
 		displayButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -159,9 +160,9 @@ public class Main extends Application{
 	}
 	public void addQuitFunctionality(){
 		Button quitButton = new Button("Quit");
-		GridPane.setHalignment(quitButton, HPos.RIGHT);
+		GridPane.setHalignment(quitButton, HPos.CENTER);
 		GridPane.setValignment(quitButton, VPos.BOTTOM);
-		window.add(quitButton, 16, 23, 1, 1);
+		window.add(quitButton, 14, 16, 1, 1);
 		quitButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -170,30 +171,33 @@ public class Main extends Application{
 		});
 	}
 	public void addSeedsFunctionality(){
+		/* Add the label for seeds */
 		Label seedsNum = new Label("Seeds:");
-		window.add(seedsNum, 1, 9, 4, 1);
+		window.add(seedsNum, 1, 8, 4, 1);
 		TextField numSeeds = new TextField();
-		window.add(numSeeds, 5, 9, 10 ,1);
-		Button buttSeed = new Button("Add Seeds");
-		GridPane.setHalignment(buttSeed, HPos.LEFT);
-		GridPane.setValignment(buttSeed, VPos.BOTTOM);
-		window.add(buttSeed, 15, 9);
-		final Text actiontarget3 = new Text();
-		window.add(actiontarget3, 5, 10, 20, 1);
-		GridPane.setHalignment(actiontarget3, HPos.CENTER);
-		GridPane.setValignment(actiontarget3, VPos.BOTTOM);
-		buttSeed.setOnAction(new EventHandler<ActionEvent>() {
+		window.add(numSeeds, 5, 8, 10 ,1);
+		Button seedButton = new Button("Add Seeds");
+		GridPane.setHalignment(seedButton, HPos.LEFT);
+		GridPane.setValignment(seedButton, VPos.BOTTOM);
+		window.add(seedButton, 15, 8);
+
+
+		final Text error_prompt2 = new Text();
+		window.add(error_prompt2, 5, 10, 20, 1);
+		GridPane.setHalignment(error_prompt2, HPos.CENTER);
+		GridPane.setValignment(error_prompt2, VPos.BOTTOM);
+		seedButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				if((numSeeds.getText() != null && !numSeeds.getText().isEmpty())){
 					String seedNum = numSeeds.getText();
 					if(!(numSeeds.getText().matches("^[0-9]+$"))){
-						actiontarget3.setFill(Color.FIREBRICK);
-						actiontarget3.setText("Insert valid number");
+						error_prompt2.setFill(Color.DARKRED);
+						error_prompt2.setText("Insert valid number");
 					}
 					else{
 						try{
-							actiontarget3.setText("                   ");
+							error_prompt2.setText("                   ");
 							long seedNum0 = Long.parseLong(seedNum);
 							Critter.setSeed(seedNum0);
 						}catch(NullPointerException|NumberFormatException exception){
@@ -203,8 +207,8 @@ public class Main extends Application{
 					}
 				}
 				else{
-					actiontarget3.setFill(Color.FIREBRICK);
-					actiontarget3.setText("Please select number of seeds");
+					error_prompt2.setFill(Color.DARKRED);
+					error_prompt2.setText("Please type a valid number!");
 				}
 				numSeeds.clear();
 			}
@@ -212,32 +216,31 @@ public class Main extends Application{
 	}
 	public void addStepsFunctionality(){
 		/* Create the label for the button */
-		Label stepLabel = new Label("Num of Steps:");
-		window.add(stepLabel, 1, 12, 4, 1);
-
+		Label stepLabel = new Label("TimeSteps:");
+		window.add(stepLabel, 1, 9, 4, 1);
 		/* Create the button for processing a time step*/
 		TextField numSteps = new TextField();
-		window.add(numSteps, 5, 12, 10, 1);
+		window.add(numSteps, 5, 9, 10, 1);
 		Button stepsButton = new Button("Do");
 		GridPane.setHalignment(stepsButton, HPos.LEFT);
 		GridPane.setValignment(stepsButton, VPos.BOTTOM);
-		window.add(stepsButton, 15, 12);
+		window.add(stepsButton, 15, 9);
 
-		final Text actiontarget1 = new Text();
-		window.add(actiontarget1, 5, 13, 20, 1);
-		GridPane.setHalignment(actiontarget1, HPos.CENTER);
-		GridPane.setValignment(actiontarget1, VPos.BOTTOM);
+		final Text error_prompt1 = new Text();
+		window.add(error_prompt1, 5, 10, 20, 1);
+		GridPane.setHalignment(error_prompt1, HPos.CENTER);
+		GridPane.setValignment(error_prompt1, VPos.BOTTOM);
 
 		/* Add the field indicating the number of time steps done */
-		Label times = new Label("Elapsed Time: ");
-		window.add(times, 1, 13, 2, 1);
+		Label times = new Label("Turn(s) Count:");
+		window.add(times, 1, 10, 2, 1);
 		GridPane.setHalignment(times, HPos.LEFT);
 		GridPane.setValignment(times, VPos.CENTER);
 		/* Add counter for the number of time steps done */
 		final Text numTimeSteps = new Text();
 		numTimeSteps.setText(String.valueOf(steps));
-		window.add(numTimeSteps, 4, 13, 1, 1);
-		GridPane.setHalignment(numTimeSteps, HPos.LEFT);
+		window.add(numTimeSteps, 5, 10, 1, 1);
+		GridPane.setHalignment(numTimeSteps, HPos.RIGHT);
 		GridPane.setValignment(numTimeSteps, VPos.CENTER);
 
 		stepsButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -246,12 +249,12 @@ public class Main extends Application{
 				if((numSteps.getText() != null && !numSteps.getText().isEmpty())){
 					String stepNum = numSteps.getText();
 					if(!(numSteps.getText().matches("^[0-9]+$"))){
-						actiontarget1.setFill(Color.FIREBRICK);
-						actiontarget1.setText("Insert valid number");
+						error_prompt1.setFill(Color.DARKRED);
+						error_prompt1.setText("Insert valid number");
 					}
 					else{
 						try{
-							actiontarget1.setText("                   ");
+							error_prompt1.setText("                   ");
 							for(int i=0; i < Integer.parseInt(stepNum); i+=1){
 								Critter.worldTimeStep();
 								//Critter.clearWorld();
@@ -267,8 +270,8 @@ public class Main extends Application{
 					}
 				}
 				else{
-					actiontarget1.setFill(Color.FIREBRICK);
-					actiontarget1.setText("Please select number of steps");
+					error_prompt1.setFill(Color.DARKRED);
+					error_prompt1.setText("Please type a valid number!");
 				}
 				numSteps.clear();
 			}
@@ -305,10 +308,10 @@ public class Main extends Application{
 
 			}
 		}
-		final Text actiontarget4 = new Text();
-		window.add(actiontarget4, 0, 0, 10, 1);
-		GridPane.setHalignment(actiontarget4, HPos.CENTER);
-		GridPane.setValignment(actiontarget4, VPos.BOTTOM);
+		final Text error_prompt3 = new Text();
+		window.add(error_prompt3, 5, 10, 20, 1);
+		GridPane.setHalignment(error_prompt3, HPos.CENTER);
+		GridPane.setValignment(error_prompt3, VPos.BOTTOM);
 
 
 
@@ -333,8 +336,8 @@ public class Main extends Application{
 						statsText.setText(output.toString());
 					}
 					else{
-						actiontarget4.setFill(Color.FIREBRICK);
-						actiontarget4.setText("Please select type of critters");
+						error_prompt3.setFill(Color.DARKRED);
+						error_prompt3.setText("Please type a valid number!");
 					}
 					comboBox1.getSelectionModel().clearSelection();
 				}catch(Exception exception){
@@ -357,12 +360,15 @@ public class Main extends Application{
 			window.setPadding(new Insets(10, 10, 10, 10));
 
 			// Create the controller scene where the game can be modified
-			Scene scene = new Scene(window, 500, 400, Color.DARKGRAY);
+			Scene scene = new Scene(window, 415, 325, Color.DARKGRAY);
 			commandsFunctionalityWindow();
 			// Create the stage for the board
 			gameBoardWindow();
 			// Create the stage for the statistics
 			critterStatisticsWindow();
+
+
+
 
 			/* Create the actual functionality and buttons and corresponding text */
 			addCritterFunctionality();

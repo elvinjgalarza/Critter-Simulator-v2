@@ -29,6 +29,10 @@ public class Critter1 extends Critter {
         }
         return false;
     }
+    
+	public static void runStats(java.util.List<Critter> critter) {
+		System.out.println("There are " + critter.size() + " Morty's on the board.");
+	}
 
 	@Override
 	public CritterShape viewShape() {
@@ -36,7 +40,7 @@ public class Critter1 extends Critter {
 	}
 	@Override
 	public javafx.scene.paint.Color viewFillColor() {
-		return javafx.scene.paint.Color.YELLOWGREEN;
+		return javafx.scene.paint.Color.LIGHTYELLOW;
 	}
 	@Override
 	public javafx.scene.paint.Color viewOutlineColor() {
