@@ -1,5 +1,21 @@
 package assignment5;
 
+/* CRITTERS2 Critter1.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
 /* The Morty Critter's life has always been down.
    It only knows being down, and so it moves downward.
    It spits out babies downwards. It always runs away

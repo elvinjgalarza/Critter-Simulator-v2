@@ -1,5 +1,21 @@
 package assignment5;
 
+/* CRITTERS2 Critter4.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
 /* Abed is Troy's best friend. He likes
    being independent, so he will move
    diagonally to the bottom left.

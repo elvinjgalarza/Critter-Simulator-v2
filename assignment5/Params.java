@@ -1,5 +1,21 @@
 package assignment5;
 
+/* CRITTERS2 Params.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
 public class Params {
 	public static int world_width = 160;
 	public static int world_height = 80;

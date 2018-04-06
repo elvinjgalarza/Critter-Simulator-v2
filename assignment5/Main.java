@@ -1,5 +1,21 @@
 package assignment5; // cannot be in default package
 
+/* CRITTERS2 Main.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
 import javafx.application.Application;
 
 import java.lang.reflect.Method;

@@ -1,5 +1,22 @@
 package assignment5;
 
+/* CRITTERS2 Critter3.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
+
 /* This Critter is named Troy. Troy likes to 
    live an uncomplicated life, so he only
    moves eastward.

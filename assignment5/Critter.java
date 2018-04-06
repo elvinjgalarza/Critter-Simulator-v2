@@ -1,5 +1,21 @@
 package assignment5;
 
+/* CRITTERS2 ViewComponent.java
+ * EE422C Project 4 submission by
+ *
+ * Elvin J. Galarza
+ * ejg2298
+ * 15455
+ *
+ * Bianca Antonio
+ * bla774
+ * 15510
+ *
+ * Slip days used: <0>
+ * Spring 2018
+ *
+ */
+
 		import java.util.ArrayList;
 		import java.util.HashMap;
 		import java.util.List;
